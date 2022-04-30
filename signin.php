@@ -18,7 +18,7 @@
         </div>			
 	</div>
     <div class="wrapper">
-        This is the body of the home page.
+        This is the body of the sign in page.
     </div>
 </body>
 </html>
