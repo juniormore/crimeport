@@ -42,7 +42,7 @@
             <?php
             if(isset($_POST['email']))
             {
-                $connection=mysqli_connect('127.0.0.1', 'root', 'juniorm', 'crimeport', '4000') or die('Failed'.mysqli_error());
+                $connection=mysqli_connect('localhost', 'root', 'RT@2001_5', 'crimewatch') or die('Failed'.mysqli_error());
 		    $query="SELECT fname FROM members WHERE 
 				(email='".$_POST['email']."') AND (password='".md5($_POST['password'])."')";
 		    $result=mysqli_query($query);

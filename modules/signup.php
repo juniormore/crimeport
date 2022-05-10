@@ -56,7 +56,7 @@
             if(isset($_POST['fname']))
             {
                 // connection details
-                $connection = mysqli_connect('127.0.0.1', 'root', 'juniorm', 'crimeport', '4000') or die('Failed'.mysql_error());
+                $connection = mysqli_connect('localhost', 'root', 'RT@2001_5', 'crimewatch') or die('Failed'.mysql_error());
 
                 // get the post records
 
