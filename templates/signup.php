@@ -34,30 +34,32 @@
             </form>
 
             <?php
-                // database connection code
-                if(isset($_POST['fname']))
+            include 'classes/Database.php';
+            // database connection code
+            $db = new Database;
+            if(isset($_POST['fname']))
+            {
+                // connection details
+                //$connection = mysqli_connect('localhost', 'root', 'RT@2001_5', 'crimewatch') or die('Failed'.mysql_error());
+
+                // get the post records
+
+                $fname = $_POST['fname'];
+                $lname = $_POST['lname'];
+                $email = $_POST['email'];
+                $password = ($_POST['password']);
+
+                // Insert code
+                $sql = "INSERT INTO members VALUES ('$fname', '$lname', '$email', '".md5($password)."')";
+
+                // insert in database 
+                $result = mysqli_query($sql);
+                if($result)
                 {
-                    // connection details
-                    $connection = mysqli_connect('localhost', 'root', 'RT@2001_5', 'crimewatch') or die('Failed'.mysql_error());
-
-                    // get the post records
-
-                    $fname = $_POST['fname'];
-                    $lname = $_POST['lname'];
-                    $email = $_POST['email'];
-                    $password = ($_POST['password']);
-
-                    // Insert code
-                    $sql = "INSERT INTO members VALUES ('$fname', '$lname', '$email', '".md5($password)."')";
-
-                    // insert in database 
-                    $result = mysqli_query($connection, $sql);
-                    if($result)
-                    {
-                    echo "Sign up successful!";
-                    }
-                    mysqli_close();
+	            echo "Sign up successful!";
                 }
+                mysqli_close();
+            }
             ?>
         </div>
     </div>
