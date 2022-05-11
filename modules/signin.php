@@ -21,24 +21,10 @@
                 </div>
             </form>
             <?php
-            include 'classes/Database.php';
-            $db = new Database;
+            include 'classes/Accounts.php';
             if(isset($_POST['email']))
             {
-            
-                //$connection=mysqli_connect('localhost', 'root', 'RT@2001_5', 'crimewatch') or die('Failed'.mysqli_error());
-		    $query="SELECT fname FROM members WHERE 
-				(email='".$_POST['email']."') AND (password='".md5($_POST['password'])."')";
-		    $result=mysqli_query($query);
-		    if(mysqli_num_rows($result)==1)
-		    {
-			    echo 'Credentials valid. Not really sure where we go from here...';
-		    }
-            else
-            {
-                echo "Invalid login details. You suck.";   
-            }
-		    mysqli_close();
+                signIn();
             }   
         ?>
             
